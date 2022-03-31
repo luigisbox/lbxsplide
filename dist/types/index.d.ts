@@ -1539,7 +1539,7 @@ declare const EVENT_AUTOPLAY_PLAYING = "autoplay:playing";
 declare const EVENT_AUTOPLAY_PAUSE = "autoplay:pause";
 declare const EVENT_LAZYLOAD_LOADED = "lazyload:loaded";
 
-declare const CLASS_ROOT = "splide";
+declare const CLASS_ROOT = "lbxsplide";
 declare const CLASS_SLIDER: string;
 declare const CLASS_TRACK: string;
 declare const CLASS_LIST: string;

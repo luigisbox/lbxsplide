@@ -1,6 +1,6 @@
 $border-radius: false !default;
 
-.splide {
+.lbxsplide {
   &__slide {
     @if $border-radius {
       border-radius: $border-radius;

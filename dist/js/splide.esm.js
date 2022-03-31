@@ -259,7 +259,7 @@ function unit(value) {
   return isString(value) ? value : value ? `${value}px` : "";
 }
 
-const PROJECT_CODE = "splide";
+const PROJECT_CODE = "lbxsplide";
 const DATA_ATTRIBUTE = `data-${PROJECT_CODE}`;
 
 function assert(condition, message) {

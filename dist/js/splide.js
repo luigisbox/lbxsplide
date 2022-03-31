@@ -289,7 +289,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     return isString(value) ? value : value ? value + "px" : "";
   }
 
-  var PROJECT_CODE = "splide";
+  var PROJECT_CODE = "lbxsplide";
   var DATA_ATTRIBUTE = "data-" + PROJECT_CODE;
 
   function assert(condition, message) {

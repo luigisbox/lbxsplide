@@ -1565,6 +1565,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var slideCount;
     var perMove;
     var perPage;
+    var forcePerMove;
 
     function mount() {
       init();
@@ -1575,6 +1576,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       slideCount = getLength(true);
       perMove = options.perMove;
       perPage = options.perPage;
+      forcePerMove = options.forcePerMove;
       currIndex = clamp(currIndex, 0, slideCount - 1);
     }
 
@@ -1649,7 +1651,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         var end = getEnd();
 
         if (dest < 0 || dest > end) {
-          if (between(0, dest, from, true) || between(end, from, dest, true)) {
+          if (!forcePerMove && (between(0, dest, from, true) || between(end, from, dest, true))) {
             dest = toIndex(toPage(dest));
           } else {
             if (isLoop) {
@@ -2768,6 +2770,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     speed: 400,
     waitForTransition: true,
     perPage: 1,
+    forcePerPage: true,
     cloneStatus: true,
     arrows: true,
     pagination: true,

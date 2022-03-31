@@ -72,6 +72,11 @@ export function Controller( Splide: Splide, Components: Components, options: Opt
   let perPage: number;
 
   /**
+   * The latest `forcePerMove` value.
+   */
+  let forcePerMove: boolean;
+
+  /**
    * Called when the component is mounted.
    */
   function mount(): void {
@@ -87,6 +92,7 @@ export function Controller( Splide: Splide, Components: Components, options: Opt
     slideCount = getLength( true );
     perMove    = options.perMove;
     perPage    = options.perPage;
+    forcePerMove    = options.forcePerMove;
     currIndex  = clamp( currIndex, 0, slideCount - 1 );
   }
 
@@ -225,10 +231,9 @@ export function Controller( Splide: Splide, Components: Components, options: Opt
   function computeDestIndex( dest: number, from: number, incremental?: boolean ): number {
     if ( isEnough() ) {
       const end = getEnd();
-
       // Will overrun:
       if ( dest < 0 || dest > end ) {
-        if ( between( 0, dest, from, true ) || between( end, from, dest, true ) ) {
+        if ( !forcePerMove && ( between( 0, dest, from, true ) || between( end, from, dest, true ) ) ) {
           dest = toIndex( toPage( dest ) );
         } else {
           if ( isLoop ) {

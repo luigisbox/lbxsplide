@@ -1328,6 +1328,7 @@ function Controller(Splide2, Components2, options) {
   let slideCount;
   let perMove;
   let perPage;
+  let forcePerMove;
   function mount() {
     init();
     on([EVENT_UPDATED, EVENT_REFRESH], init, DEFAULT_EVENT_PRIORITY - 1);
@@ -1336,6 +1337,7 @@ function Controller(Splide2, Components2, options) {
     slideCount = getLength(true);
     perMove = options.perMove;
     perPage = options.perPage;
+    forcePerMove = options.forcePerMove;
     currIndex = clamp(currIndex, 0, slideCount - 1);
   }
   function go(control, allowSameIndex, callback) {
@@ -1393,7 +1395,7 @@ function Controller(Splide2, Components2, options) {
     if (isEnough()) {
       const end = getEnd();
       if (dest < 0 || dest > end) {
-        if (between(0, dest, from, true) || between(end, from, dest, true)) {
+        if (!forcePerMove && (between(0, dest, from, true) || between(end, from, dest, true))) {
           dest = toIndex(toPage(dest));
         } else {
           if (isLoop) {
@@ -2288,6 +2290,7 @@ const DEFAULTS = {
   speed: 400,
   waitForTransition: true,
   perPage: 1,
+  forcePerPage: true,
   cloneStatus: true,
   arrows: true,
   pagination: true,

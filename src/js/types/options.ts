@@ -278,6 +278,11 @@ export interface ResponsiveOptions {
   perMove?: number;
 
   /**
+   * When true, always move by perMove.
+   */
+  forcePerMove?: boolean;
+
+  /**
    * Determine the number of clones on each side of the slider.
    * In most cases, you don't need to provide this value.
    */

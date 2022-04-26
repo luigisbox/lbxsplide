@@ -152,7 +152,12 @@ export function Elements( Splide: Splide, Components: Components, options: Optio
     track  = query( root, `.${ CLASS_TRACK }` );
     list   = child( track, `.${ CLASS_LIST }` );
 
-    assert( track && list, 'A track/list element is missing.' );
+    try {
+      assert( track && list, 'A track/list element is missing.' );
+    } catch ( error ) {
+      console.error( error );
+    }
+    
 
     push( slides, children( list, `.${ CLASS_SLIDE }:not(.${ CLASS_CLONE })` ) );
 

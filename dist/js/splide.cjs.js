@@ -734,7 +734,11 @@ function Elements(Splide2, Components2, options) {
     slider = child(root, `.${CLASS_SLIDER}`);
     track = query(root, `.${CLASS_TRACK}`);
     list = child(track, `.${CLASS_LIST}`);
-    assert(track && list, "A track/list element is missing.");
+    try {
+      assert(track && list, "A track/list element is missing.");
+    } catch (error) {
+      console.error(error);
+    }
     push(slides, children(list, `.${CLASS_SLIDE}:not(.${CLASS_CLONE})`));
     const autoplay = find(`.${CLASS_AUTOPLAY}`);
     const arrows = find(`.${CLASS_ARROWS}`);
